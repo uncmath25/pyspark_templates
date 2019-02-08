@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+PYTHON_PATH="/home/app"
+
+if [ -z "$1" ]; then
+    echo "No script given..."
+else
+    echo "Submitting the given python script to the spark cluster..."
+    docker exec spark_templates_mastercluster_1 bin/spark-submit $PYTHON_PATH/$1
+fi

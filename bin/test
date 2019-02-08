@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+PYTHON_PATH="/home/app"
+
+if [ -z "$1" ]; then
+    echo "Testing all project modules..."
+    test_path="."
+else
+    echo "Testing modules in the dir/path: "$1" ..."
+    test_path=$1
+fi
+
+docker exec spark_templates_masternotebook_1 sh -c "$test_path"

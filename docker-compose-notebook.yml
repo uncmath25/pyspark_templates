@@ -1,0 +1,28 @@
+version: "3"
+services:
+  masternotebook:
+    build:
+      context: .
+      dockerfile: Dockerfile-notebook
+    command: start-notebook.sh --NotebookApp.token=''
+    hostname: master
+    environment:
+      - SPARK_PUBLIC_DNS=localhost
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    expose:
+      - 7001
+      - 7002
+      - 7003
+      - 7004
+      - 7005
+      - 7077
+      - 6066
+    ports:
+      - 4040:4040
+      - 6066:6066
+      - 7077:7077
+      - 8080:8080
+      - 8888:8888
+    volumes:
+      - ./templates/notebooks:/home/jovyan/templates/notebooks
