@@ -7,9 +7,8 @@ services:
     command: start-notebook.sh --NotebookApp.token=''
     hostname: master
     environment:
+      - SPARK_CONF_DIR=/conf
       - SPARK_PUBLIC_DNS=localhost
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     expose:
       - 7001
       - 7002
@@ -25,4 +24,7 @@ services:
       - 8080:8080
       - 8888:8888
     volumes:
+      - ./conf/master:/conf
+      - ./notebooks/work:/home/jovyan/work
+      - ./notebooks/startup:/home/jovyan/.ipython/profile_default/startup
       - ./templates/notebooks:/home/jovyan/templates/notebooks

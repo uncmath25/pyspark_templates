@@ -1,4 +1,4 @@
-# PySpark Dockerized Jupyter Notebook and Cluster
+# Dockerized PySpark Jupyter Notebook and Cluster
 
 
 ### Description:
@@ -8,6 +8,7 @@ This project provides a dockerized pyspark environment for both running Jupyter 
 ### Jupyter Notebook Usage:
 * Start a jupyter server which runs on a workerless pyspark cluster: ` make upn `
 * Useful for quick testing, particularly in conjunction with pyspark sql
+* The spark session is initialized on startup and can be accessed by **spark**
 
 
 ### Local Cluster Usage:

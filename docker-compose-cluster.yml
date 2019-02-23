@@ -1,6 +1,6 @@
 version: "3"
 services:
-  mastercluster:
+  master:
     build:
       context: .
       dockerfile: Dockerfile-cluster
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./conf/master:/conf
       - ./templates/scripts:/home/app/templates/scripts
-  workercluster:
+  worker:
     build:
       context: .
       dockerfile: Dockerfile-cluster
