@@ -10,4 +10,4 @@ else
     test_path=$1
 fi
 
-docker exec spark_templates_masternotebook_1 sh -c "$test_path"
+docker exec spark_templates_masternotebook_1 sh -c "cd /home/jovyan && pytest $test_path"

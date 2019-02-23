@@ -28,3 +28,4 @@ services:
       - ./notebooks/work:/home/jovyan/work
       - ./notebooks/startup:/home/jovyan/.ipython/profile_default/startup
       - ./templates/notebooks:/home/jovyan/templates/notebooks
+      - ./tests:/home/jovyan/tests
