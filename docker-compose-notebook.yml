@@ -9,6 +9,8 @@ services:
     environment:
       - SPARK_CONF_DIR=/conf
       - SPARK_PUBLIC_DNS=localhost
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     expose:
       - 7001
       - 7002

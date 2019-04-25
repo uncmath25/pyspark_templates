@@ -1,4 +1,6 @@
 FROM gettyimages/spark:2.4.0-hadoop-3.0
 
+ADD ./conf/jars/* /usr/local/spark/jars/
+
 ADD ./requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
