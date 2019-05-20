@@ -1,14 +1,13 @@
-.PHONY: flake test build down upn upc
+.PHONY: flake clean build down upn upc test
 
 flake:
 	@echo "*** Linting python code ***"
 	flake8 . --ignore="E501"
 
-test:
-	@echo "*** Running tests ***"
-	make upn
-	./bin/test
-	make down
+clean:
+	@echo "*** Cleaning the repo ***"
+	@rm -rf `find . -name __pycache__`
+	@rm -rf `find . -name .ipynb_checkpoints`
 
 build:
 	@echo "*** Rebuilding images for docker compose container collections ***"
@@ -27,3 +26,9 @@ upn: down
 upc: down
 	@echo "*** Starting spark cluster server ***"
 	docker-compose -f ./docker-compose-cluster.yml up -d
+
+test: build
+	@echo "*** Running tests ***"
+	make upn
+	./bin/test
+	make down

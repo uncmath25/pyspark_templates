@@ -4,3 +4,6 @@ ADD ./conf/jars/* /usr/local/spark/jars/
 
 ADD ./requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
+
+# Download necessary data for nltk
+RUN python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt')"

@@ -10,4 +10,4 @@ else
     test_path=$1
 fi
 
-docker exec spark_templates_masternotebook_1 sh -c "cd /home/jovyan && pytest $test_path"
+docker-compose -f docker-compose-notebook.yml exec masternotebook bash -c "cd /home/jovyan && pytest $test_path"

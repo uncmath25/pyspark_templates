@@ -12,13 +12,13 @@ services:
       SPARK_PUBLIC_DNS: localhost
       PYTHONPATH: /home/app
     expose:
+      - 6066
       - 7001
       - 7002
       - 7003
       - 7004
       - 7005
       - 7077
-      - 6066
     ports:
       - 4040:4040
       - 6066:6066
@@ -26,7 +26,7 @@ services:
       - 8080:8080
     volumes:
       - ./conf/master:/conf
-      - ./templates/scripts:/home/app/templates/scripts
+      - ./scripts/templates:/home/app/scripts/templates/
   worker:
     build:
       context: .

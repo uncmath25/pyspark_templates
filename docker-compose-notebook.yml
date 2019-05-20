@@ -12,13 +12,13 @@ services:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     expose:
+      - 6066
       - 7001
       - 7002
       - 7003
       - 7004
       - 7005
       - 7077
-      - 6066
     ports:
       - 4040:4040
       - 6066:6066
@@ -27,7 +27,7 @@ services:
       - 8888:8888
     volumes:
       - ./conf/master:/conf
-      - ./notebooks/work:/home/jovyan/work
       - ./notebooks/startup:/home/jovyan/.ipython/profile_default/startup
-      - ./templates/notebooks:/home/jovyan/templates/notebooks
+      - ./notebooks/templates:/home/jovyan/templates
+      - ./notebooks/work:/home/jovyan/work
       - ./tests:/home/jovyan/tests
