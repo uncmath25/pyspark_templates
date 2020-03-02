@@ -9,7 +9,7 @@ clean:
 	@rm -rf `find . -name __pycache__`
 	@rm -rf `find . -name .ipynb_checkpoints`
 
-build:
+build: clean
 	@echo "*** Rebuilding images for docker compose container collections ***"
 	docker-compose -f ./docker-compose-notebook.yml build
 	docker-compose -f ./docker-compose-cluster.yml build

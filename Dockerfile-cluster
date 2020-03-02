@@ -1,5 +1,8 @@
 FROM gettyimages/spark:2.4.0-hadoop-3.0
 
+# Required for pyspark installation in requirements
+RUN pip install wheel==0.34.2
+
 ADD ./conf/jars/* /usr/local/spark/jars/
 
 ADD ./requirements.txt /tmp/requirements.txt
